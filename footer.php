@@ -1,0 +1,215 @@
+<footer class="footer">
+      <div class="footer__inner container">
+        <div class="footer__body">
+          <nav class="footer__menu">
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">Home</a>
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Features</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Blogs</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Resources</a>
+                  <span class="badge">New</span>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Testimonials</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Contact Us</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Newsletter</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">News</a>
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Trending Stories</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Featured Videos</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Technology</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Health</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Politics</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Environment</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">Blogs</a>
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Quantum Computing</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">AI Ethics</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Space Exploration</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Biotechnology</a>
+                  <span class="badge">New</span>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Renewable Energy</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">Biohacking</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">Podcasts</a>
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">AI Revolution</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">AI Revolution</a>
+                  <span class="badge">New</span>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">TechTalk AI</a>
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link">AI Conversations</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">Resources</a>
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link button"
+                    ><span class="icon icon--yellow-arrow">Whitepapers</span></a
+                  >
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link button"
+                    ><span class="icon icon--yellow-arrow">Ebooks</span></a
+                  >
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link button"
+                    ><span class="icon icon--yellow-arrow">Reports</span></a
+                  >
+                </li>
+                <li class="footer__menu-item">
+                  <a href="" class="footer__menu-link button"
+                    ><span class="icon icon--yellow-arrow"
+                      >Research Papers</span
+                    >
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer__extra">
+          <div class="footer__extra-menu">
+            <ul class="footer__extra-menu-list">
+              <li class="footer__extra-menu-item">
+                <a href="" class="footer__extra-menu-link"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li class="footer__extra-menu-item">
+                <a href="" class="footer__extra-menu-link">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__soc1als soc1als">
+            <ul class="soc1als__list">
+              <li class="soc1als__item">
+                <a
+                  href=""
+                  class="soc1als__link"
+                  aria-label="Twitter"
+                  title="Twitter"
+                  ><svg
+                    width="24"
+                    height="20"
+                    viewBox="0 0 24 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.0571 5.18114C21.0664 5.39235 21.0664 5.59395 21.0664 5.80515C21.0756 12.2084 16.3712 19.6004 7.76793 19.6004C5.23048 19.6004 2.73933 18.842 0.600098 17.4212C0.970528 17.4692 1.34096 17.4884 1.71139 17.4884C3.81358 17.4884 5.86021 16.7588 7.51789 15.4052C5.51756 15.3668 3.75802 14.0132 3.14681 12.0356C3.85063 12.1796 4.57296 12.1508 5.25826 11.9492C3.08198 11.5076 1.51691 9.52036 1.50765 7.20675C1.50765 7.18755 1.50765 7.16835 1.50765 7.14915C2.15591 7.52355 2.88751 7.73475 3.62837 7.75395C1.58174 6.33315 0.942746 3.50114 2.18369 1.28353C4.5637 4.31714 8.06427 6.15075 11.8241 6.35235C11.4445 4.67234 11.9631 2.90594 13.1762 1.71553C15.0561 -0.118073 18.0196 -0.0220723 19.7977 1.92673C20.8441 1.71553 21.8535 1.31233 22.7704 0.74593C22.4185 1.86913 21.6869 2.81954 20.7145 3.42434C21.6406 3.30914 22.5481 3.04994 23.4001 2.66594C22.7704 3.64514 21.9739 4.48994 21.0571 5.18114Z"
+                      fill="white"
+                    /></svg
+                ></a>
+              </li>
+              <li class="soc1als__item">
+                <a
+                  href=""
+                  class="soc1als__link"
+                  aria-label="Medium"
+                  title="Medium"
+                  ><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5374 12.2281C13.5374 15.9988 10.5069 19.0556 6.76883 19.0556C3.03073 19.0556 0 15.9981 0 12.2281C0 8.45806 3.0305 5.40039 6.76883 5.40039C10.5072 5.40039 13.5374 8.45737 13.5374 12.2281Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M20.9627 12.2285C20.9627 15.7778 19.4474 18.6563 17.5783 18.6563C15.7091 18.6563 14.1938 15.7778 14.1938 12.2285C14.1938 8.67922 15.7089 5.80078 17.578 5.80078C19.4472 5.80078 20.9625 8.67829 20.9625 12.2285"
+                      fill="white"
+                    />
+                    <path
+                      d="M24 12.228C24 15.4073 23.4672 17.9862 22.8097 17.9862C22.1522 17.9862 21.6196 15.408 21.6196 12.228C21.6196 9.04797 22.1525 6.46973 22.8097 6.46973C23.467 6.46973 24 9.04774 24 12.228Z"
+                      fill="white"
+                    /></svg
+                ></a>
+              </li>
+              <li class="soc1als__item">
+                <a
+                  href=""
+                  class="soc1als__link"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.8647 0.599609H2.13554C1.72832 0.599609 1.33777 0.761379 1.04982 1.04933C0.761867 1.33728 0.600098 1.72783 0.600098 2.13505V19.8642C0.600098 20.2714 0.761867 20.6619 1.04982 20.9499C1.33777 21.2378 1.72832 21.3996 2.13554 21.3996H19.8647C20.2719 21.3996 20.6624 21.2378 20.9504 20.9499C21.2383 20.6619 21.4001 20.2714 21.4001 19.8642V2.13505C21.4001 1.72783 21.2383 1.33728 20.9504 1.04933C20.6624 0.761379 20.2719 0.599609 19.8647 0.599609ZM6.79965 18.3186H3.67243V8.38516H6.79965V18.3186ZM5.23388 7.00861C4.87915 7.00661 4.53296 6.89958 4.239 6.70102C3.94504 6.50246 3.71649 6.22127 3.58219 5.89294C3.44789 5.56461 3.41386 5.20386 3.48439 4.8562C3.55492 4.50855 3.72686 4.18958 3.9785 3.93955C4.23014 3.68952 4.5502 3.51964 4.8983 3.45134C5.2464 3.38304 5.60693 3.41939 5.93439 3.5558C6.26185 3.6922 6.54156 3.92255 6.73823 4.21778C6.9349 4.51301 7.03971 4.85988 7.03943 5.21461C7.04278 5.45211 6.99827 5.68784 6.90857 5.90777C6.81887 6.1277 6.68582 6.32732 6.51733 6.49473C6.34884 6.66215 6.14837 6.79392 5.92787 6.88221C5.70736 6.97049 5.47134 7.01348 5.23388 7.00861ZM18.3263 18.3273H15.2005V12.9005C15.2005 11.3001 14.5202 10.8061 13.642 10.8061C12.7147 10.8061 11.8047 11.5052 11.8047 12.9409V18.3273H8.67743V8.39239H11.6848V9.76894H11.7252C12.0271 9.15794 13.0844 8.11361 14.6979 8.11361C16.4428 8.11361 18.3278 9.14928 18.3278 12.1826L18.3263 18.3273Z"
+                      fill="white"
+                    /></svg
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <p class="footer__copyright">
+            © <time datetime="2024">2024</time> FutureTech. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    
+    <?php wp_footer(); ?>
+  </body>
+</html>
