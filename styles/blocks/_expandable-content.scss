@@ -37,9 +37,5 @@
     @include abs-x;
 
     bottom: rem(68);
-
-    @include laptop-above {
-      bottom: rem(0);
-    }
   }
 }

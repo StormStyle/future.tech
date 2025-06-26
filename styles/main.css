@@ -333,7 +333,7 @@ svg * {
   translate: 0 -50%;
   content: "";
   right: 0;
-  background: url("../../icons/arrow-top-right_black.svg") center no-repeat var(--color-accent);
+  background: url("../icons/arrow-top-right_black.svg") center no-repeat var(--color-accent);
   border-radius: 50%;
 }
 
@@ -488,11 +488,6 @@ a[class] {
   left: 50%;
   translate: -50%;
   bottom: 4.25rem;
-}
-@media (width > 90.06125rem) {
-  .expandable-content__button {
-    bottom: 0rem;
-  }
 }
 
 .icon {
@@ -1695,12 +1690,12 @@ a[class] {
   --size: 1.5rem;
   width: var(--size);
   height: var(--size);
-  background: url("../../icons/star.svg") center/contain no-repeat;
+  background: url("../icons/star.svg") center/contain no-repeat;
   cursor: pointer;
   transition: transform 0.25s ease, background 0.5s ease;
 }
 .rating-view__star.is-active {
-  background: url("../../icons/starY.svg") center/contain no-repeat;
+  background: url("../icons/starY.svg") center/contain no-repeat;
   transform: scale(1.2);
 }
 .rating-view__star:hover {

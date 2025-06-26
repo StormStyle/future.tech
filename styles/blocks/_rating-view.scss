@@ -18,13 +18,13 @@
 
     @include square(var(--size));
 
-    background: url('../../icons/star.svg') center/contain no-repeat;
+    background: url('../icons/star.svg') center/contain no-repeat;
     cursor: pointer;
 
     transition: transform 0.25s ease, background 0.5s ease;
 
     &.is-active {
-      background: url('../../icons/starY.svg') center/contain no-repeat;
+      background: url('../icons/starY.svg') center/contain no-repeat;
       transform: scale(1.2);
     }
 

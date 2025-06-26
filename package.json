@@ -8,9 +8,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-watch": "sass --watch ."
+    "sass-watch": "sass --watch .",
+    "format": "prettier --write \"**/*.php\""
   },
   "devDependencies": {
+    "@prettier/plugin-php": "^0.22.4",
+    "prettier": "^3.6.1",
     "sass": "^1.89.2"
   }
 }
