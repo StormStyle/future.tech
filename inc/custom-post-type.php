@@ -3,8 +3,8 @@
 function register_video_post_type() {
   register_post_type('video', [
     'labels' => [
-      'name' => 'Videos',
-      'singular_name' => 'Video',
+      'name' => 'videos',
+      'singular_name' => 'video',
     ],
     'public' => true,
     'has_archive' => true,
@@ -18,7 +18,7 @@ add_action('init', 'register_video_post_type');
 function register_review_post_type() {
   register_post_type('review', [
     'labels' => [
-      'name' => 'Review',
+      'name' => 'review',
       'singular_name' => 'review',
       'add_new_item' => 'Add a review',
       'edit_item' => 'Edit a review',
@@ -36,7 +36,11 @@ add_action('init', 'register_review_post_type');
 function register_person_post_type() {
   register_post_type('person', array(
     'labels' => array(
+<<<<<<< HEAD
       'name' => 'Team',
+=======
+      'name' => 'team',
+>>>>>>> dev
       'singular_name' => 'person',
     ),
     'public' => true,
