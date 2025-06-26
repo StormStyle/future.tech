@@ -506,225 +506,85 @@
         </div>
       </section> -->
 
-      <section class="section">
-        <header class="section__header">
-          <div class="section__header-inner container">
-            <div class="section__header-info">
-              <p class="section__subtitle tag">What Our Readers Say</p>
-              <h2 class="section__title">Real Words from Real Readers</h2>
+  <!-- <section class="section">
+   <header class="section__header">
+      <div class="section__header-inner container">
+         <div class="section__header-info">
+            <p class="section__subtitle tag">What Our Readers Say</p>
+            <h2 class="section__title">Real Words from Real Readers</h2>
+         </div>
+         <div class="section__actions">
+            <a href="/reviews" class="section__link button">
+            <span class="icon icon--yellow-arrow"
+               >View All Testimonials</span
+               >
+            </a>
+         </div>
+      </div>
+   </header>
+   <div class="section__body">
+      <?php
+         $args = array(
+           'post_type'      => 'review',
+           'posts_per_page' => 6,
+           'orderby'        => 'date',
+           'order'          => 'DESC',
+         );
+         
+         $reviews = new WP_Query($args);
+         
+         if ($reviews->have_posts()) : ?>
+      <ul class="bordered-grid bordered-grid--3-col container">
+         <?php while ($reviews->have_posts()) : $reviews->the_post();
+            $review_id = get_the_ID();
+            $person_id = get_post_meta($review_id, '_review_person_id', true);
+            $rating = intval(get_post_meta($review_id, '_review_rating', true));
+            if ($rating < 1 || $rating > 5) $rating = 0;
+            if ($person_id && get_post_status($person_id)) {
+                $person_avatar_id = get_post_thumbnail_id($person_id);
+                $avatar_url = $person_avatar_id ? wp_get_attachment_image_url($person_avatar_id, 'thumbnail') : '';
+                $person_name = get_the_title($person_id);
+                $person_location = get_post_meta($person_id, '_person_location', true);
+            } else {
+                $person_name = get_post_meta($review_id, '_review_manual_name', true);
+                $person_location = get_post_meta($review_id, '_review_manual_location', true);
+                $review_thumbnail_id = get_post_thumbnail_id($review_id);
+                $avatar_url = $review_thumbnail_id ? wp_get_attachment_image_url($review_thumbnail_id, 'thumbnail') : '';
+            }
+            ?>
+         <li class="bordered-grid__item">
+            <div class="review-card">
+               <div class="review-card__author person-card">
+                  <img src="<?php echo esc_url($avatar_url); ?>" alt="<?php echo esc_attr($person_name); ?>" width="60"
+                     height="60">
+                  <div class="person-card__body">
+                     <p class="person-card__name"><?php echo esc_html($person_name); ?></p>
+                     <p class="person-card__post"><?php echo esc_html($person_location); ?></p>
+                  </div>
+               </div>
+               <div class="review-card__body tile">
+                  <div class="review-card__rating-view rating-view" data-rating="<?php echo $rating; ?>">
+                     <?php
+                        for ($i = 1; $i <= 5; $i++) {
+                          $active_class = ($i <= $rating) ? ' is-active' : '';
+                          echo '<div class="rating-view__star' . $active_class . '" data-index="' . $i . '"></div>';
+                        }
+                        ?>
+                  </div>
+                  <blockquote class="review-card__description">
+                     <p>
+                        <?php the_content(); ?>
+                     </p>
+                  </blockquote>
+               </div>
             </div>
-            <div class="section__actions">
-              <a href="" class="section__link button">
-                <span class="icon icon--yellow-arrow"
-                  >View All Testimonials</span
-                >
-              </a>
-            </div>
-          </div>
-        </header>
-        <div class="section__body">
-          <ul class="bordered-grid bordered-grid--3-col container">
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/4.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Sarah Thompson</p>
-                    <p class="person-card__post">San Francisco, USA</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The ebooks on AI in education have been a game-changer for
-                      my research. They provide in-depth insights and case
-                      studies that are invaluable for staying updated.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/5.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Jessica Miller</p>
-                    <p class="person-card__post">Boston, USA</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The research papers on genomic breakthroughs have been a
-                      goldmine of information. They've shaped the direction of
-                      my research in genomics.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/6.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Emily Adams</p>
-                    <p class="person-card__post">London, UK</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The AI in healthcare reports have been an essential
-                      resource for our hospital. They highlight the latest
-                      innovations and best practices, improving patient care.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/7.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Raj Patel</p>
-                    <p class="person-card__post">Mumbai, India</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The whitepapers on renewable energy strategies have
-                      greatly influenced my work. They offer detailed data and
-                      analysis, helping me make informed decisions.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/4.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Diego Lopez</p>
-                    <p class="person-card__post">Barcelona, Spain</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The ebooks on renewable energy strategies have given me
-                      the insights I needed to pivot our startup toward
-                      sustainability.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-            <li class="bordered-grid__item">
-              <div class="review-card">
-                <div class="review-card__author person-card">
-                  <img
-                    src="/img/team/4.png"
-                    alt=""
-                    class="person-card__image"
-                    width="60"
-                    height="60"
-                  />
-                  <div class="person-card__body">
-                    <p class="person-card__name">Alan Jackson</p>
-                    <p class="person-card__post">Houston, USA</p>
-                  </div>
-                </div>
-                <div class="review-card__body tile">
-                  <div class="review-card__rating-view rating-view" data-rating>
-                    <div class="rating-view__star" data-index="1"></div>
-                    <div class="rating-view__star" data-index="2"></div>
-                    <div class="rating-view__star" data-index="3"></div>
-                    <div class="rating-view__star" data-index="4"></div>
-                    <div class="rating-view__star" data-index="5"></div>
-                  </div>
-                  <blockquote class="review-card__description">
-                    <p>
-                      The reports on space mining prospects have fueled my
-                      passion for space exploration. They provide a
-                      comprehensive view of what lies beyond Earth.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+         </li>
+         <?php endwhile; wp_reset_postdata(); ?>
+   </div>
+   <?php endif; ?>
+   </ul>
+   </div>
+  </section> -->
 
       <!-- <?php get_template_part('templates/about'); ?>  -->
     </main>

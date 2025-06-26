@@ -6,6 +6,9 @@ require get_template_directory() . '/inc/menu.php';
 require get_template_directory() . '/inc/custom-post-type.php';
 require get_template_directory() . '/inc/author.php';
 require get_template_directory() . '/inc/video.php';
+require get_template_directory() . '/inc/reviews.php';
+require get_template_directory() . '/inc/team.php';
+
 add_filter(
   'script_loader_tag',
   function ($tag, $handle, $src) {
