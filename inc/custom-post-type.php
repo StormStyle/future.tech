@@ -36,11 +36,7 @@ add_action('init', 'register_review_post_type');
 function register_person_post_type() {
   register_post_type('person', array(
     'labels' => array(
-<<<<<<< HEAD
-      'name' => 'Team',
-=======
       'name' => 'team',
->>>>>>> dev
       'singular_name' => 'person',
     ),
     'public' => true,
