@@ -3,35 +3,53 @@ function register_features_block()
 {
   wp_register_script(
     'features-block-editor-script',
-    get_template_directory_uri() .
-      '/inc/blocks/features-block/features-block.js',
-    ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n'],
+    get_template_directory_uri() . '/blocks/features-block/features-block.js',
+    [
+      'wp-blocks',
+      'wp-element',
+      'wp-components',
+      'wp-editor',
+      'wp-block-editor',
+    ],
     filemtime(
-      get_template_directory() . '/inc/blocks/features-block/features-block.js',
+      get_template_directory() . '/blocks/features-block/features-block.js',
+    ),
+  );
+
+  wp_register_style(
+    'features-block-editor-style',
+    get_template_directory_uri() .
+      '/blocks/features-block/features-block-editor.css',
+    ['wp-edit-blocks'],
+    filemtime(
+      get_template_directory() .
+        '/blocks/features-block/features-block-editor.css',
     ),
   );
 
   register_block_type('custom/features-block', [
     'editor_script' => 'features-block-editor-script',
+    'editor_style' => 'features-block-editor-style',
     'render_callback' => 'render_features_block',
     'attributes' => [
-      'sectionSubtitle' => [
+      'subtitle' => [
         'type' => 'string',
         'default' => 'Unlock the Power of',
       ],
-      'sectionTitle' => [
+      'title' => [
         'type' => 'string',
         'default' => 'FutureTech Features',
       ],
-      'cards' => [
+      'features' => [
         'type' => 'array',
         'default' => [
           [
-            'icon' => get_template_directory_uri() . '/img/card/1.svg',
-            'previewTitle' => 'Future Technology Blog',
-            'previewDescription' =>
+            'id' => 1,
+            'img' => get_template_directory_uri() . '/img/card/1.svg',
+            'featureTitle' => 'Future Technology Blog',
+            'description' =>
               'Stay informed with our blog section dedicated to future technology.',
-            'tiles' => [
+            'cells' => [
               [
                 'title' => 'Quantity',
                 'description' =>
@@ -40,7 +58,7 @@ function register_features_block()
               [
                 'title' => 'Variety',
                 'description' =>
-                  'Over 1,000 articles on emerging tech trends and breakthroughs.Articles cover fields like AI, robotics, biotechnology, and more.',
+                  'Articles cover fields like AI, robotics, biotechnology, and more.',
               ],
               [
                 'title' => 'Frequency',
@@ -55,11 +73,12 @@ function register_features_block()
             ],
           ],
           [
-            'icon' => get_template_directory_uri() . '/img/card/2.svg',
-            'previewTitle' => 'Research Insights Blogs',
-            'previewDescription' =>
+            'id' => 2,
+            'img' => get_template_directory_uri() . '/img/card/2.svg',
+            'featureTitle' => 'Research Insights Blogs',
+            'description' =>
               'Dive deep into future technology concepts with our research section.',
-            'tiles' => [
+            'cells' => [
               [
                 'title' => 'Depth',
                 'description' =>
@@ -83,9 +102,6 @@ function register_features_block()
             ],
           ],
         ],
-        'items' => [
-          'type' => 'object',
-        ],
       ],
     ],
   ]);
@@ -95,58 +111,63 @@ add_action('init', 'register_features_block');
 function render_features_block($attributes)
 {
   $atts = wp_parse_args($attributes, [
-    'sectionSubtitle' => 'Unlock the Power of',
-    'sectionTitle' => 'FutureTech Features',
-    'cards' => [],
+    'subtitle' => '',
+    'title' => '',
+    'features' => [],
   ]);
 
   ob_start();
   ?>
   <section class="section">
     <header class="section__header">
-      <div class="section___header-inner container">
+      <div class="section__header-inner container">
         <div class="section__header-info">
           <p class="section__subtitle tag"><?php echo esc_html(
-            $atts['sectionSubtitle'],
+            $atts['subtitle'],
           ); ?></p>
           <h2 class="section__title"><?php echo esc_html(
-            $atts['sectionTitle'],
+            $atts['title'],
           ); ?></h2>
         </div>
       </div>
     </header>
     <div class="section__body">
       <ul class="list">
-        <?php foreach ($atts['cards'] as $card): ?>
+        <?php foreach ($atts['features'] as $feature): ?>
           <li class="list__item">
             <div class="card container">
               <div class="card__preview">
                 <div class="card__preview-main">
                   <img src="<?php echo esc_url(
-                    $card['icon'],
+                    $feature['img'],
                   ); ?>" alt="" class="card__preview-icon" width="80" height="80" />
                   <div class="card__preview-info">
                     <h3 class="card__preview-title"><?php echo esc_html(
-                      $card['previewTitle'],
+                      $feature['featureTitle'],
                     ); ?></h3>
                     <div class="card__preview-description"><?php echo esc_html(
-                      $card['previewDescription'],
+                      $feature['description'],
                     ); ?></div>
                   </div>
                 </div>
               </div>
               <div class="card__body">
                 <div class="card__grid card__grid--2-col">
-                  <?php foreach ($card['tiles'] as $tile): ?>
-                    <div class="card__cell tile">
-                      <h4 class="card__cell-title h5"><?php echo esc_html(
-                        $tile['title'],
-                      ); ?></h4>
-                      <p class="card__cell-description"><?php echo esc_html(
-                        $tile['description'],
-                      ); ?></p>
-                    </div>
-                  <?php endforeach; ?>
+                  <?php if (
+                    !empty($feature['cells']) &&
+                    is_array($feature['cells'])
+                  ): ?>
+                    <?php foreach ($feature['cells'] as $cell): ?>
+                      <div class="card__cell tile">
+                        <h4 class="card__cell-title h5"><?php echo esc_html(
+                          $cell['title'],
+                        ); ?></h4>
+                        <p class="card__cell-description"><?php echo esc_html(
+                          $cell['description'],
+                        ); ?></p>
+                      </div>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
