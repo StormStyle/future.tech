@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('/wp-content/themes/future-tech/fonts/KumbhSans-Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hero__heading {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 20px;
+}
+
+.hero {
+  background-color: #262626;
+  color: white;
+  font-family: 'Kumbh Sans', sans-serif;
+  border-radius: 30px;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero label {
+  font-size: 18px;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+  text-align: right !important;
+}
+
+.hero input,
+.hero textarea {
+  font-size: 18px !important;
+  text-align: center;
+  border-radius: 5px !important;
+  border: none !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  border-radius: 5px !important;
+  color: #ffd11a;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.hero__metrics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.hero__metric {
+  width: 32%;
+  padding: 40px 10px;
+  box-sizing: border-box;
+  background-color: #333;
+  border-radius: 20px;
+}
+
+.hero__input_type_metric-value {
+  font-size: 32px !important;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero__input_type_metric-title {
+  font-size: 18px !important;
+  color: #ccc;
+}
+
+.hero__team {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.hero__team-image {
+  width: 32%;
+  text-align: center;
+}
+
+.hero__team-image img {
+  max-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.hero__advantages {
+  margin-top: 40px;
+}
+
+.hero__advantage {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.hero__advantage-image-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.hero__advantage-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.hero__input_type_advantage-title,
+.hero__input_type_advantage-subtitle,
+.hero__textarea_type_advantage-details,
+.hero__input_type_advantage-link {
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.hero__resources {
+  margin-bottom: 40px;
+}
+
+.hero__input_type_resources-title,
+.hero__textarea_type_resources-subtitle,
+.hero__input_type_resources-link,
+.hero__input_type_resources-link-text {
+  margin-bottom: 12px;
+  width: 100%;
+}
