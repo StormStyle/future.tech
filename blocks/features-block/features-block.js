@@ -99,88 +99,63 @@
       return el(
         Fragment,
         {},
-        el(
-          'div',
-          { className: 'features-block' },
-          el('h2', { className: 'features-head' }, 'Head'),
+        el('div', { className: 'main-block' }, [
+          el('h1', { className: 'block-name' }, 'Features'),
+          el('h2', { className: 'block-section__label' }, 'Main'),
           el(TextControl, {
             label: 'Subtitle',
             value: subtitle,
-            onChange: (value) => setAttributes({ subtitle: value }),
-            className:
-              'features-block__input features-block__input_type_subtitle',
+            onChange: (v) => setAttributes({ subtitle: v }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
           }),
           el(TextControl, {
             label: 'Title',
             value: title,
-            onChange: (value) => setAttributes({ title: value }),
-            className: 'features-block__input features-block__input_type_title',
+            onChange: (v) => setAttributes({ title: v }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
           }),
 
           features.map((feature, fIndex) =>
-            el(
-              'div',
-              {
-                key: `feature-${fIndex}`,
-                className: 'features-block__feature',
-              },
-              el('h2', { className: 'features-head' }, 'Main'),
+            el(Fragment, { key: `feature-${fIndex}` }, [
+              el('h2', { className: 'block-section__label' }, 'Section'),
               el(TextControl, {
                 label: 'Feature Title',
                 value: feature.featureTitle,
-                onChange: (value) =>
-                  updateFeature(fIndex, 'featureTitle', value),
-                className:
-                  'features-block__input features-block__input_type_feature-title',
+                onChange: (v) => updateFeature(fIndex, 'featureTitle', v),
                 __next40pxDefaultSize: true,
                 __nextHasNoMarginBottom: true,
               }),
               el(TextareaControl, {
                 label: 'Feature Description',
                 value: feature.description,
-                onChange: (value) =>
-                  updateFeature(fIndex, 'description', value),
-                className:
-                  'features-block__textarea features-block__textarea_type_feature-description',
+                onChange: (v) => updateFeature(fIndex, 'description', v),
                 __nextHasNoMarginBottom: true,
               }),
-              feature.cells &&
-                feature.cells.map((cell, cIndex) =>
-                  el(
-                    'div',
-                    {
-                      key: `feature-${fIndex}-cell-${cIndex}`,
-                      className: 'features-block__cell',
-                    },
-                    el('h2', { className: 'features-head' }, 'Tiles'),
-                    el(TextControl, {
-                      label: 'Cell Title',
-                      value: cell.title,
-                      onChange: (value) =>
-                        updateCell(fIndex, cIndex, 'title', value),
-                      className:
-                        'features-block__input features-block__input_type_cell-title',
-                      __next40pxDefaultSize: true,
-                      __nextHasNoMarginBottom: true,
-                    }),
-                    el(TextareaControl, {
-                      label: 'Cell Description',
-                      value: cell.description,
-                      onChange: (value) =>
-                        updateCell(fIndex, cIndex, 'description', value),
-                      className:
-                        'features-block__textarea features-block__textarea_type_cell-description',
-                      __nextHasNoMarginBottom: true,
-                    }),
-                  ),
-                ),
-            ),
+
+              (feature.cells || []).map((cell, cIndex) =>
+                el(Fragment, { key: `feature-${fIndex}-cell-${cIndex}` }, [
+                  el('h2', { className: 'block-section__label' }, 'Tiles'),
+                  el(TextControl, {
+                    label: 'Cell Title',
+                    value: cell.title,
+                    onChange: (v) => updateCell(fIndex, cIndex, 'title', v),
+                    __next40pxDefaultSize: true,
+                    __nextHasNoMarginBottom: true,
+                  }),
+                  el(TextareaControl, {
+                    label: 'Cell Description',
+                    value: cell.description,
+                    onChange: (v) =>
+                      updateCell(fIndex, cIndex, 'description', v),
+                    __nextHasNoMarginBottom: true,
+                  }),
+                ]),
+              ),
+            ]),
           ),
-        ),
+        ]),
       );
     },
 

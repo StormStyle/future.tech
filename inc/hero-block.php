@@ -4,11 +4,9 @@ function register_hero_block()
 {
   wp_register_style(
     'hero-block-editor-style',
-    get_template_directory_uri() . '/blocks/hero-block/hero-block-editor.css',
-    [],
-    filemtime(
-      get_template_directory() . '/blocks/hero-block/hero-block-editor.css',
-    ),
+    get_template_directory_uri() . '/blocks/block-editor.css',
+    ['wp-edit-blocks'],
+    filemtime(get_template_directory() . '/blocks/block-editor.css'),
   );
 
   wp_register_script(

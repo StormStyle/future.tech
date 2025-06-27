@@ -15,8 +15,16 @@ function register_cta_block()
     true,
   );
 
+  wp_register_style(
+    'cta-block-editor-style',
+    get_template_directory_uri() . '/blocks/block-editor.css',
+    ['wp-edit-blocks'],
+    filemtime(get_template_directory() . '/blocks/block-editor.css'),
+  );
+
   register_block_type('custom/cta-block', [
     'editor_script' => 'cta-block-editor-script',
+    'editor_style' => 'cta-block-editor-style',
     'render_callback' => 'render_cta_block',
     'attributes' => [
       'icon' => ['type' => 'string', 'default' => '/img/about/icon.svg'],

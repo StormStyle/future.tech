@@ -109,73 +109,59 @@
       return el(
         Fragment,
         {},
-        el(
-          'div',
-          { className: 'hero' }, // главный блок
-          el(
-            'h2',
-            { className: 'hero__heading hero__heading_type_main' },
-            'Main',
-          ),
+        el('div', { className: 'main-block' }, [
+          el('h1', { className: 'block-name' }, 'Hero'),
+          el('h2', { className: 'block-section__label' }, 'Main'),
 
           el(
             'div',
-            { className: 'hero__main container' },
-            el('div', { className: 'hero__body' }, [
+            {},
+            el('div', {}, [
               el(TextControl, {
-                className: 'hero__input hero__input_type_subtitle',
                 label: 'Subtitle',
                 value: mainSubtitle,
-                onChange: (value) => setAttributes({ mainSubtitle: value }),
+                onChange: (v) => setAttributes({ mainSubtitle: v }),
                 placeholder: 'Enter subtitle...',
                 __next40pxDefaultSize: true,
                 __nextHasNoMarginBottom: true,
               }),
               el(TextControl, {
-                className: 'hero__input hero__input_type_title',
                 label: 'Title',
                 value: mainTitle,
-                onChange: (value) => setAttributes({ mainTitle: value }),
+                onChange: (v) => setAttributes({ mainTitle: v }),
                 placeholder: 'Enter title...',
                 __next40pxDefaultSize: true,
                 __nextHasNoMarginBottom: true,
               }),
               el(TextareaControl, {
-                className: 'hero__textarea hero__textarea_type_description',
                 label: 'Description',
                 value: mainDescription,
-                onChange: (value) => setAttributes({ mainDescription: value }),
+                onChange: (v) => setAttributes({ mainDescription: v }),
                 placeholder: 'Enter description...',
                 __nextHasNoMarginBottom: true,
               }),
             ]),
           ),
 
-          el(
-            'h2',
-            { className: 'hero__heading hero__heading_type_metrics' },
-            'Metrics',
-          ),
+          el('h2', { className: 'block-section__label' }, 'Metrix'),
 
           el(
             'div',
-            { className: 'hero__metrics' },
-            metrics.map((metric, index) =>
-              el('div', { className: 'hero__metric', key: index }, [
+            {},
+            metrics.map((metric, i) =>
+              el('div', { key: i }, [
                 el(TextControl, {
-                  className: 'hero__input hero__input_type_metric-value',
                   label: 'Metric Value',
                   value: metric.value,
-                  onChange: (value) => updateMetric(index, 'value', value),
+                  onChange: (v) => updateMetric(i, 'value', v),
                   placeholder: 'Metric Value',
                   __next40pxDefaultSize: true,
                   __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
-                  className: 'hero__input hero__input_type_metric-title',
                   label: 'Metric Title',
                   value: metric.title,
-                  onChange: (value) => updateMetric(index, 'title', value),
+                  onChange: (v) => updateMetric(i, 'title', v),
                   placeholder: 'Metric Title',
                   __next40pxDefaultSize: true,
                   __nextHasNoMarginBottom: true,
@@ -184,46 +170,37 @@
             ),
           ),
 
-          el(
-            'h2',
-            { className: 'hero__heading hero__heading_type_resources' },
-            'Resources',
-          ),
+          el('h2', { className: 'block-section__label' }, 'Resourses'),
 
-          el('div', { className: 'hero__resources' }, [
+          el('div', {}, [
             el(TextControl, {
-              className: 'hero__input hero__input_type_resources-title',
               label: 'Resources Title',
               value: resourcesTitle,
-              onChange: (value) => setAttributes({ resourcesTitle: value }),
+              onChange: (v) => setAttributes({ resourcesTitle: v }),
               placeholder: 'Resources title...',
               __next40pxDefaultSize: true,
               __nextHasNoMarginBottom: true,
             }),
             el(TextareaControl, {
-              className:
-                'hero__textarea hero__textarea_type_resources-subtitle',
               label: 'Resources Subtitle',
               value: resourcesSubtitle,
-              onChange: (value) => setAttributes({ resourcesSubtitle: value }),
+              onChange: (v) => setAttributes({ resourcesSubtitle: v }),
               placeholder: 'Resources subtitle...',
               __next40pxDefaultSize: true,
               __nextHasNoMarginBottom: true,
             }),
             el(TextControl, {
-              className: 'hero__input hero__input_type_resources-link',
               label: 'Resources Link',
               value: resourcesLink,
-              onChange: (value) => setAttributes({ resourcesLink: value }),
+              onChange: (v) => setAttributes({ resourcesLink: v }),
               placeholder: 'Resources link...',
               __next40pxDefaultSize: true,
               __nextHasNoMarginBottom: true,
             }),
             el(TextControl, {
-              className: 'hero__input hero__input_type_resources-link-text',
               label: 'Resources Link Text',
               value: resourcesLinkText,
-              onChange: (value) => setAttributes({ resourcesLinkText: value }),
+              onChange: (v) => setAttributes({ resourcesLinkText: v }),
               placeholder: 'Resources link text...',
               __next40pxDefaultSize: true,
               __nextHasNoMarginBottom: true,
@@ -232,18 +209,18 @@
 
           el(
             'div',
-            { className: 'hero__team' },
-            teamImages.map((url, index) =>
+            { className: 'main-block__img' },
+            teamImages.map((url, i) =>
               el(MediaUpload, {
-                key: index,
-                onSelect: (media) => updateTeamImage(index, media.url),
+                key: i,
+                onSelect: (media) => updateTeamImage(i, media.url),
                 allowedTypes: ['image'],
                 render: ({ open }) =>
-                  el('div', { className: 'hero__team-image' }, [
+                  el('div', { className: 'main-block__img-item' }, [
                     el('img', {
                       src: url,
                       style: { width: '60px', height: '60px' },
-                      alt: 'Team member image',
+                      alt: 'Image',
                     }),
                     el(Button, { onClick: open }, 'Change Image'),
                   ]),
@@ -251,64 +228,53 @@
             ),
           ),
 
-          el(
-            'h2',
-            { className: 'hero__heading hero__heading_type_advantages' },
-            'Advantages',
-          ),
+          el('h2', { className: 'block-section__label' }, 'Advantages'),
 
           el(
             'div',
-            { className: 'hero__advantages' },
-            advantages.map((adv, index) =>
-              el('div', { className: 'hero__advantage', key: index }, [
+            {},
+            advantages.map((adv, i) =>
+              el('div', { key: i }, [
                 el(MediaUpload, {
-                  onSelect: (media) => updateAdvantage(index, 'img', media.url),
+                  onSelect: (media) => updateAdvantage(i, 'img', media.url),
                   allowedTypes: ['image'],
                   render: ({ open }) =>
-                    el('div', { className: 'hero__advantage-image-wrapper' }, [
+                    el('div', { className: 'main-block__img-item' }, [
                       el('img', {
                         src: adv.img,
                         style: { width: '40px', height: '40px' },
                         alt: 'Advantage image',
-                        className: 'hero__advantage-image',
                       }),
-                      el(Button, { onClick: open }, 'Change Advantage Image'),
+                      el(Button, { onClick: open }, 'Change'),
                     ]),
                 }),
                 el(TextControl, {
-                  className: 'hero__input hero__input_type_advantage-title',
                   label: 'Advantage Title',
                   value: adv.title,
-                  onChange: (value) => updateAdvantage(index, 'title', value),
+                  onChange: (v) => updateAdvantage(i, 'title', v),
                   placeholder: 'Advantage title...',
                   __next40pxDefaultSize: true,
                   __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
-                  className: 'hero__input hero__input_type_advantage-subtitle',
                   label: 'Advantage Subtitle',
                   value: adv.subtitle,
-                  onChange: (value) =>
-                    updateAdvantage(index, 'subtitle', value),
+                  onChange: (v) => updateAdvantage(i, 'subtitle', v),
                   placeholder: 'Advantage subtitle...',
                   __next40pxDefaultSize: true,
                   __nextHasNoMarginBottom: true,
                 }),
                 el(TextareaControl, {
-                  className:
-                    'hero__textarea hero__textarea_type_advantage-details',
                   label: 'Advantage Details',
                   value: adv.details,
-                  onChange: (value) => updateAdvantage(index, 'details', value),
+                  onChange: (v) => updateAdvantage(i, 'details', v),
                   placeholder: 'Advantage details...',
                   __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
-                  className: 'hero__input hero__input_type_advantage-link',
                   label: 'Advantage Link',
                   value: adv.link,
-                  onChange: (value) => updateAdvantage(index, 'link', value),
+                  onChange: (v) => updateAdvantage(i, 'link', v),
                   placeholder: 'Advantage link...',
                   __next40pxDefaultSize: true,
                   __nextHasNoMarginBottom: true,
@@ -316,7 +282,7 @@
               ]),
             ),
           ),
-        ),
+        ]),
       );
     },
 

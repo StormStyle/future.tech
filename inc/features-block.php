@@ -19,11 +19,11 @@ function register_features_block()
   wp_register_style(
     'features-block-editor-style',
     get_template_directory_uri() .
-      '/blocks/features-block/features-block-editor.css',
+      '/blocks/block-editor.css',
     ['wp-edit-blocks'],
     filemtime(
       get_template_directory() .
-        '/blocks/features-block/features-block-editor.css',
+        '/blocks/block-editor.css',
     ),
   );
 

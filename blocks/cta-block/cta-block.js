@@ -59,33 +59,32 @@
       return el(
         Fragment,
         {},
-        el(TextControl, {
-          label: 'Subtitle',
-          value: subtitle,
-          onChange: (value) => setAttributes({ subtitle: value }),
-          __next40pxDefaultSize: true,
-          __nextHasNoMarginBottom: true,
-        }),
-        el(TextControl, {
-          label: 'Title',
-          value: title,
-          onChange: (value) => setAttributes({ title: value }),
-          __next40pxDefaultSize: true,
-          __nextHasNoMarginBottom: true,
-        }),
-        el(TextareaControl, {
-          label: 'Description',
-          value: description,
-          onChange: (value) => setAttributes({ description: value }),
-          __nextHasNoMarginBottom: true,
-        }),
-        el(
-          'div',
-          { className: 'cta-block__items' },
+        el('div', { className: 'main-block' }, [
+          el('h1', { className: 'block-name' }, 'CTA'),
+          el('h2', { className: 'block-section__label' }, 'Main'),
+          el(TextControl, {
+            label: 'Subtitle',
+            value: subtitle,
+            onChange: (value) => setAttributes({ subtitle: value }),
+            __next40pxDefaultSize: true,
+            __nextHasNoMarginBottom: true,
+          }),
+          el(TextControl, {
+            label: 'Title',
+            value: title,
+            onChange: (value) => setAttributes({ title: value }),
+            __next40pxDefaultSize: true,
+            __nextHasNoMarginBottom: true,
+          }),
+          el(TextareaControl, {
+            label: 'Description',
+            value: description,
+            onChange: (value) => setAttributes({ description: value }),
+            __nextHasNoMarginBottom: true,
+          }),
           items.map((item, index) =>
-            el(
-              'div',
-              { className: 'cta-block__item', key: index },
+            el('div', { key: index }, [
+              el('h2', { className: 'block-section__label' }, 'Section'),
               el(TextControl, {
                 label: `Item Title ${index + 1}`,
                 value: item.title,
@@ -106,14 +105,14 @@
                 __next40pxDefaultSize: true,
                 __nextHasNoMarginBottom: true,
               }),
-            ),
+            ]),
           ),
-        ),
+        ]),
       );
     },
 
     save() {
-      return null; // динамический рендер через PHP
+      return null;
     },
   });
 })();

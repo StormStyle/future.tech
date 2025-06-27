@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('/wp-content/themes/future-tech/fonts/KumbhSans-Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.main-block {
+  background-color: #262626;
+  color: white;
+  font-family: 'Kumbh Sans', sans-serif;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.block-name {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  color: #ffd11a;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  background-color: #262626;
+  border: 2px solid #ffd11a;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.block-name h1 {
+  border: 1px solid #262626 !important;
+}
+
+.block-section__label {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px 60px;
+  color: #b3b3b3;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #333333;
+}
+
+.main-block label {
+  font-size: 18px;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  text-align: right !important;
+}
+
+.main-block input,
+.main-block textarea {
+  font-size: 18px !important;
+  text-align: center;
+  border-radius: 5px !important;
+  border: none !important;
+  padding: auto 12px !important;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.main-block button {
+  border-radius: 5px !important;
+  color: #ffd11a;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.main-block__img {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main-block__img-item {
+  width: 30%;
+  background-color: #181818;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 0;
+  border-radius: 20px;
+  border: 1px solid #333333;
+}

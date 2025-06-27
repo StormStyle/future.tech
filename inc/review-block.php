@@ -17,8 +17,16 @@ function register_reviews_block()
     true,
   );
 
+  wp_register_style(
+    'reviews-block-editor-style',
+    get_template_directory_uri() . '/blocks/block-editor.css',
+    ['wp-edit-blocks'],
+    filemtime(get_template_directory() . '/blocks/block-editor.css'),
+  );
+
   register_block_type('custom/reviews-block', [
     'editor_script' => 'reviews-block-editor-script',
+    'editor_style' => 'reviews-block-editor-style',
     'render_callback' => 'render_reviews_block',
     'attributes' => [
       'subtitle' => [

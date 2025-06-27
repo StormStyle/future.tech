@@ -23,11 +23,12 @@
       return el(
         Fragment,
         {},
-        el('div', { className: 'tabs-news-admin' }, [
+        el('div', { className: 'main-block' }, [
+          el('h1', { className: 'block-name' }, 'Tabs-News'),
+          el('h2', { className: 'block-section__label' }, 'Main'),
           el(TextControl, {
             label: 'Subtitle',
             value: subtitle,
-            className: 'tabs-news-admin__input',
             onChange: (value) => setAttributes({ subtitle: value }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
@@ -35,7 +36,6 @@
           el(TextControl, {
             label: 'Title',
             value: title,
-            className: 'tabs-news-admin__input',
             onChange: (value) => setAttributes({ title: value }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
@@ -43,7 +43,6 @@
           el(TextControl, {
             label: 'Button Text',
             value: buttonText,
-            className: 'tabs-news-admin__input',
             onChange: (value) => setAttributes({ buttonText: value }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
@@ -51,7 +50,6 @@
           el(TextControl, {
             label: 'Button URL',
             value: buttonUrl,
-            className: 'tabs-news-admin__input',
             onChange: (value) => setAttributes({ buttonUrl: value }),
             __next40pxDefaultSize: true,
             __nextHasNoMarginBottom: true,
