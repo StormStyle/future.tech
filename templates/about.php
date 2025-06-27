@@ -1,4 +1,4 @@
-<section class="about">
+<!-- <section class="about">
         <div class="about__inner container">
           <header class="about__header">
             <img
@@ -26,7 +26,7 @@
           </header>
           <ul class="about__list">
             <li class="about__item">
-              <a href="" class="about-card tile">
+              <a href="/resources" class="about-card tile">
                 <h3 class="about-card__title circle-icon">Resource Access</h3>
                 <div class="about-card__description">
                   <p>
@@ -60,4 +60,4 @@
             </li>
           </ul>
         </div>
-      </section>
+      </section> -->

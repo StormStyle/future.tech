@@ -43,13 +43,6 @@
 @use 'blocks/table-of-contents';
 @use 'blocks/report-card';
 
-/* .header,
-main > *:not(:last-child),
-.footer {
-  display: none !important;
-}
-
-*/
 
 ::-webkit-scrollbar {
   width: 8px;            

@@ -1,13 +1,11 @@
 
 <?php
 
-// Добавление метабоксов
 add_action('add_meta_boxes', function () {
   add_meta_box('review_author', 'Автор отзыва', 'render_review_author_box', 'review', 'normal');
   add_meta_box('review_rating', 'Рейтинг (1–5 звезд)', 'render_review_rating_meta_box', 'review', 'side');
 });
 
-// Отображение метабокса автора
 function render_review_author_box($post) {
   wp_nonce_field('save_review_author_meta', 'review_author_nonce');
 
@@ -39,7 +37,6 @@ function render_review_author_box($post) {
   <?php endforeach;
 }
 
-// Сохранение данных автора
 add_action('save_post', function ($post_id) {
   if (
     defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ||
@@ -54,7 +51,6 @@ add_action('save_post', function ($post_id) {
   update_post_meta($post_id, '_review_manual_location', sanitize_text_field($_POST['review_manual_location'] ?? ''));
 });
 
-// Отображение метабокса рейтинга
 function render_review_rating_meta_box($post) {
   wp_nonce_field('save_review_rating_meta', 'review_rating_nonce');
   $rating = (int) get_post_meta($post->ID, '_review_rating', true);
@@ -75,7 +71,6 @@ function render_review_rating_meta_box($post) {
   </select>
 <?php }
 
-// Сохранение рейтинга
 add_action('save_post', function ($post_id) {
   if (
     defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ||
