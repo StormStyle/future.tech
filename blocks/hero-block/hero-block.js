@@ -128,6 +128,8 @@
                 value: mainSubtitle,
                 onChange: (value) => setAttributes({ mainSubtitle: value }),
                 placeholder: 'Enter subtitle...',
+                __next40pxDefaultSize: true,
+                __nextHasNoMarginBottom: true,
               }),
               el(TextControl, {
                 className: 'hero__input hero__input_type_title',
@@ -135,6 +137,8 @@
                 value: mainTitle,
                 onChange: (value) => setAttributes({ mainTitle: value }),
                 placeholder: 'Enter title...',
+                __next40pxDefaultSize: true,
+                __nextHasNoMarginBottom: true,
               }),
               el(TextareaControl, {
                 className: 'hero__textarea hero__textarea_type_description',
@@ -142,6 +146,7 @@
                 value: mainDescription,
                 onChange: (value) => setAttributes({ mainDescription: value }),
                 placeholder: 'Enter description...',
+                __nextHasNoMarginBottom: true,
               }),
             ]),
           ),
@@ -163,6 +168,8 @@
                   value: metric.value,
                   onChange: (value) => updateMetric(index, 'value', value),
                   placeholder: 'Metric Value',
+                  __next40pxDefaultSize: true,
+                  __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
                   className: 'hero__input hero__input_type_metric-title',
@@ -170,6 +177,8 @@
                   value: metric.title,
                   onChange: (value) => updateMetric(index, 'title', value),
                   placeholder: 'Metric Title',
+                  __next40pxDefaultSize: true,
+                  __nextHasNoMarginBottom: true,
                 }),
               ]),
             ),
@@ -188,6 +197,8 @@
               value: resourcesTitle,
               onChange: (value) => setAttributes({ resourcesTitle: value }),
               placeholder: 'Resources title...',
+              __next40pxDefaultSize: true,
+              __nextHasNoMarginBottom: true,
             }),
             el(TextareaControl, {
               className:
@@ -196,6 +207,8 @@
               value: resourcesSubtitle,
               onChange: (value) => setAttributes({ resourcesSubtitle: value }),
               placeholder: 'Resources subtitle...',
+              __next40pxDefaultSize: true,
+              __nextHasNoMarginBottom: true,
             }),
             el(TextControl, {
               className: 'hero__input hero__input_type_resources-link',
@@ -203,6 +216,8 @@
               value: resourcesLink,
               onChange: (value) => setAttributes({ resourcesLink: value }),
               placeholder: 'Resources link...',
+              __next40pxDefaultSize: true,
+              __nextHasNoMarginBottom: true,
             }),
             el(TextControl, {
               className: 'hero__input hero__input_type_resources-link-text',
@@ -210,6 +225,8 @@
               value: resourcesLinkText,
               onChange: (value) => setAttributes({ resourcesLinkText: value }),
               placeholder: 'Resources link text...',
+              __next40pxDefaultSize: true,
+              __nextHasNoMarginBottom: true,
             }),
           ]),
 
@@ -265,6 +282,8 @@
                   value: adv.title,
                   onChange: (value) => updateAdvantage(index, 'title', value),
                   placeholder: 'Advantage title...',
+                  __next40pxDefaultSize: true,
+                  __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
                   className: 'hero__input hero__input_type_advantage-subtitle',
@@ -273,6 +292,8 @@
                   onChange: (value) =>
                     updateAdvantage(index, 'subtitle', value),
                   placeholder: 'Advantage subtitle...',
+                  __next40pxDefaultSize: true,
+                  __nextHasNoMarginBottom: true,
                 }),
                 el(TextareaControl, {
                   className:
@@ -281,6 +302,7 @@
                   value: adv.details,
                   onChange: (value) => updateAdvantage(index, 'details', value),
                   placeholder: 'Advantage details...',
+                  __nextHasNoMarginBottom: true,
                 }),
                 el(TextControl, {
                   className: 'hero__input hero__input_type_advantage-link',
@@ -288,6 +310,8 @@
                   value: adv.link,
                   onChange: (value) => updateAdvantage(index, 'link', value),
                   placeholder: 'Advantage link...',
+                  __next40pxDefaultSize: true,
+                  __nextHasNoMarginBottom: true,
                 }),
               ]),
             ),

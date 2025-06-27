@@ -7,6 +7,10 @@ require get_template_directory() . '/inc/custom-post-type.php';
 require get_template_directory() . '/inc/author.php';
 require get_template_directory() . '/inc/video.php';
 require get_template_directory() . '/inc/hero-block.php';
+require get_template_directory() . '/inc/features-block.php';
+require get_template_directory() . '/inc/tabs-news-block.php';
+require get_template_directory() . '/inc/review-block.php';
+require get_template_directory() . '/inc/cta-block.php';
 
 add_filter(
   'script_loader_tag',
