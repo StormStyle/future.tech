@@ -25,7 +25,7 @@ function register_hero_block()
 
   register_block_type('custom/hero-block', [
     'editor_script' => 'hero-block-editor-script',
-    'editor_style' => 'hero-block-editor-style', // Стили для редактора
+    'editor_style' => 'hero-block-editor-style',
     'render_callback' => 'render_hero_block',
     'attributes' => [
       'mainSubtitle' => [
@@ -44,9 +44,9 @@ function register_hero_block()
       'metrics' => [
         'type' => 'array',
         'default' => [
-          ['title' => 'Resources available', 'value' => '300+'],
-          ['title' => 'Total Downloads', 'value' => '12k+'],
-          ['title' => 'Active Users', 'value' => '10k+'],
+          ['title' => 'Resources available', 'value' => '300'],
+          ['title' => 'Total Downloads', 'value' => '12k'],
+          ['title' => 'Active Users', 'value' => '10k'],
         ],
         'items' => ['type' => 'object'],
       ],

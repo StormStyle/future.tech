@@ -2,9 +2,10 @@
 
 <main>
   <section class="blog-details">
-    <?php
-    if (have_posts()):
-      while (have_posts()): the_post();
+    <?php if (have_posts()):
+      while (have_posts()):
+
+        the_post();
         $current_post_id = get_the_ID();
         $image_url = get_the_post_thumbnail_url($current_post_id, 'full');
         ?>
@@ -53,7 +54,7 @@
                            >
                         <span class="blog-actions__icon-wrapper"
                            ><?php echo file_get_contents(
-                           get_template_directory() . '/icons/heart.svg',
+                             get_template_directory() . '/icons/heart.svg',
                            ); ?>
                         </span>
                         <span> 24.5k </span>
@@ -63,7 +64,7 @@
                         <button class="blog-actions__button" type="button">
                         <span class="blog-actions__icon-wrapper"
                            ><?php echo file_get_contents(
-                           get_template_directory() . '/icons/view.svg',
+                             get_template_directory() . '/icons/view.svg',
                            ); ?>
                         </span>
                         <span> 50 </span>
@@ -73,7 +74,7 @@
                         <button class="blog-actions__button" type="button">
                         <span class="blog-actions__icon-wrapper"
                            ><?php echo file_get_contents(
-                           get_template_directory() . '/icons/tele.svg',
+                             get_template_directory() . '/icons/tele.svg',
                            ); ?>
                         </span>
                         <span> 20 </span>
@@ -85,7 +86,9 @@
                   <dl class="summary__list">
                      <div class="summary__item">
                         <dl class="summary__key">Category</dl>
-                        <dd class="summary__value"><?php the_category(''); ?></dd>
+                        <dd class="summary__value"><?php the_category(
+                          '',
+                        ); ?></dd>
                      </div>
                      <div class="summary__item">
                         <dl class="summary__key">Publication Date</dl>
@@ -97,28 +100,41 @@
                      </div>
                      <div class="summary__item">
                         <dl class="summary__key">Reading Time</dl>
-                        <dd class="summary__value">Environment</dd>
+                        <dd class="summary__value">-</dd>
                      </div>
                      <div class="summary__item summary__item--wide">
                         <dl class="summary__key">Table of Contents</dl>
                         <dd class="summary__value">
                            <div class="table-of-contents">
                               <ul class="table-of-contents__list">
-                                 <?php
-                                    $categories = get_categories([
-                                      'hide_empty' => 0,
-                                    ]);
-                                    if (!empty($categories)) {
-                                      foreach ($categories as $category) {
-                                        echo '<li class="table-of-contents__item">' .
-                                          esc_html($category->name) .
-                                          '</li>';
-                                      }
-                                    } else {
-                                      echo '<li class="table-of-contents__item">Категорий нет</li>';
-                                    }
-                                    ?>
-                              </ul>
+        <?php
+        $excluded_slug = 'uncategorized';
+        $categories = get_categories([
+          'hide_empty' => 0,
+          'exclude' => [],
+        ]);
+
+        if (!empty($categories)) {
+          foreach ($categories as $category) {
+            if ($category->slug === $excluded_slug) {
+              continue;
+            }
+
+            $category_link = get_category_link($category->term_id);
+
+            echo '<li class="table-of-contents__item">';
+            echo '<a href="' .
+              esc_url($category_link) .
+              '">' .
+              esc_html($category->name) .
+              '</a>';
+            echo '</li>';
+          }
+        } else {
+          echo '<li class="table-of-contents__item">Категорий нет</li>';
+        }
+        ?>
+      </ul>
                            </div>
                         </dd>
                      </div>
@@ -127,37 +143,41 @@
             </div>
          </div>
       </div>
-        <?php endwhile;
-    endif;
-    ?>
+        <?php
+      endwhile;
+    endif; ?>
 
     <div class="blog-details__news news container">
       <header class="news__header">
         <h2 class="news__title h4">Similar News</h2>
-        <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="news__link button">
+        <a href="/all-news" class="news__link button">
           <span class="icon icon--yellow-arrow">View All News</span>
         </a>
       </header>
       <ul class="news__list">
         <?php
         $args = [
-          'post_type'      => 'post',
-          'posts_per_page' => 3, 
-          'post_status'    => 'publish',
-          'post__not_in'   => [$current_post_id],
-          'orderby'        => 'date',
-          'order'          => 'DESC',
-          'ignore_sticky_posts' => true
+          'post_type' => 'post',
+          'posts_per_page' => 3,
+          'post_status' => 'publish',
+          'post__not_in' => [$current_post_id],
+          'orderby' => 'date',
+          'order' => 'DESC',
+          'ignore_sticky_posts' => true,
         ];
         $query = new WP_Query($args);
 
         if ($query->have_posts()):
-          while ($query->have_posts()): $query->the_post(); ?>
+          while ($query->have_posts()):
+            $query->the_post(); ?>
             <li class="news__item">
               <article class="news-card">
                 <?php if (has_post_thumbnail()): ?>
                   <div class="news-card__image">
-                    <?php the_post_thumbnail('blog-post-thumb', ['class' => 'news-card__image', 'alt' => get_the_title()]); ?>
+                    <?php the_post_thumbnail('blog-post-thumb', [
+                      'class' => 'news-card__image',
+                      'alt' => get_the_title(),
+                    ]); ?>
                   </div>
                 <?php endif; ?>
                 <div class="news-card__body">
@@ -178,13 +198,17 @@
                     <ul class="blog-actions__list">
                       <li class="blog-actions__item">
                         <button class="blog-actions__button" type="button" data-like>
-                          <span class="blog-actions__icon-wrapper"><?php echo file_get_contents(get_template_directory() . '/icons/heart.svg'); ?></span>
+                          <span class="blog-actions__icon-wrapper"><?php echo file_get_contents(
+                            get_template_directory() . '/icons/heart.svg',
+                          ); ?></span>
                           <span>10k</span>
                         </button>
                       </li>
                       <li class="blog-actions__item">
                         <button class="blog-actions__button" type="button">
-                          <span class="blog-actions__icon-wrapper"><?php echo file_get_contents(get_template_directory() . '/icons/tele.svg'); ?></span>
+                          <span class="blog-actions__icon-wrapper"><?php echo file_get_contents(
+                            get_template_directory() . '/icons/tele.svg',
+                          ); ?></span>
                           <span>124</span>
                         </button>
                       </li>

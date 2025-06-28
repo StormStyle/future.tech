@@ -19,7 +19,7 @@
       </div>
       <div class="header__body">
         <div class="header__body-inner container">
-          <a href="/test/" class="header__logo logo" title="Home" aria-label="Home">
+          <a href="/" class="header__logo logo" title="Home" aria-label="Home">
             <img
               src="<?php echo get_template_directory_uri() .
                 '/img/logo.png'; ?>"
@@ -30,17 +30,14 @@
             />
           </a>
           <div class="header__overlay" data-js-header-overlay>
-            <?php
-wp_nav_menu([
-    'theme_location'  => 'primary',
-    'container'       => 'nav',
-    'container_class' => 'header__menu',
-    'menu_class'      => 'header__menu-list',
-    'fallback_cb'     => false,
-    'walker'          => new Header_Menu_Walker(),
-]);
-
-?>
+            <?php wp_nav_menu([
+              'theme_location' => 'primary',
+              'container' => 'nav',
+              'container_class' => 'header__menu',
+              'menu_class' => 'header__menu-list',
+              'fallback_cb' => false,
+              'walker' => new Header_Menu_Walker(),
+            ]); ?>
 
             <a href="" class="header__contact-us-link button button--accent"
               >Contact Us</a

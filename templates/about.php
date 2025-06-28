@@ -26,7 +26,7 @@
           </header>
           <ul class="about__list">
             <li class="about__item">
-              <a href="" class="about-card tile">
+              <a href="/resources#resources-section" class="about-card tile">
                 <h3 class="about-card__title circle-icon">Resource Access</h3>
                 <div class="about-card__description">
                   <p>

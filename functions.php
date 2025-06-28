@@ -11,6 +11,11 @@ require get_template_directory() . '/inc/features-block.php';
 require get_template_directory() . '/inc/tabs-news-block.php';
 require get_template_directory() . '/inc/review-block.php';
 require get_template_directory() . '/inc/cta-block.php';
+require get_template_directory() . '/inc/podcasts.php';
+require get_template_directory() . '/inc/resources.php';
+require get_template_directory() . '/inc/metrix-block.php';
+require get_template_directory() . '/inc/video-block.php';
+require get_template_directory() . '/inc/news-block.php';
 
 add_filter(
   'script_loader_tag',

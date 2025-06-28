@@ -6,75 +6,79 @@
               <a href="" class="footer__menu-main-link h6">Home</a>
               <ul class="footer__menu-list">
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Features</a>
+                  <a href="http://future.tech/#features-section" class="footer__menu-link">Features</a>
                 </li>
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Blogs</a>
+                  <a href="/blog" class="footer__menu-link">Blogs</a>
                 </li>
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Resources</a>
+                  <a href="/resource" class="footer__menu-link">Resources</a>
                   <span class="badge">New</span>
                 </li>
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Testimonials</a>
+                  <a href="http://future.tech/reviews/" class="footer__menu-link">Testimonials</a>
                 </li>
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Contact Us</a>
+                  <a href="#" class="footer__menu-link">Contact Us</a>
                 </li>
                 <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Newsletter</a>
+                  <a href="#" class="footer__menu-link">Newsletter</a>
                 </li>
               </ul>
             </div>
             <div class="footer__menu-column">
               <a href="" class="footer__menu-main-link h6">News</a>
               <ul class="footer__menu-list">
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Trending Stories</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Featured Videos</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Technology</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Health</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Politics</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Environment</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer__menu-column">
-              <a href="" class="footer__menu-main-link h6">Blogs</a>
-              <ul class="footer__menu-list">
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Quantum Computing</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">AI Ethics</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Space Exploration</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Biotechnology</a>
-                  <span class="badge">New</span>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Renewable Energy</a>
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link">Biohacking</a>
-                </li>
-              </ul>
+  <?php
+  $categories = get_categories([
+    'hide_empty' => 0,
+    'exclude' => [],
+  ]);
+
+  foreach ($categories as $category) {
+    if ($category->slug === 'uncategorized') {
+      continue;
+    }
+
+    $link = get_category_link($category->term_id);
+    echo '<li class="footer__menu-item">';
+    echo '<a href="' .
+      esc_url($link) .
+      '" class="footer__menu-link">' .
+      esc_html($category->name) .
+      '</a>';
+    echo '</li>';
+  }
+  ?>
+</ul>
+
             </div>
             <div class="footer__menu-column">
               <a href="" class="footer__menu-main-link h6">Podcasts</a>
+              <ul class="footer__menu-list">
+  <?php
+  $podcast_categories = get_terms([
+    'taxonomy' => 'podcast_category',
+    'hide_empty' => false,
+  ]);
+
+  if (!empty($podcast_categories) && !is_wp_error($podcast_categories)) {
+    foreach ($podcast_categories as $cat) {
+      $link = get_term_link($cat);
+      echo '<li class="footer__menu-item">';
+      echo '<a href="' .
+        esc_url($link) .
+        '" class="footer__menu-link">' .
+        esc_html($cat->name) .
+        '</a>';
+      echo '</li>';
+    }
+  }
+  ?>
+</ul>
+            </div>
+            <div class="footer__menu-column">
+              <a href="" class="footer__menu-main-link h6">Something</a>
               <ul class="footer__menu-list">
                 <li class="footer__menu-item">
                   <a href="" class="footer__menu-link">AI Revolution</a>
@@ -102,11 +106,6 @@
                 <li class="footer__menu-item">
                   <a href="" class="footer__menu-link button"
                     ><span class="icon icon--yellow-arrow">Ebooks</span></a
-                  >
-                </li>
-                <li class="footer__menu-item">
-                  <a href="" class="footer__menu-link button"
-                    ><span class="icon icon--yellow-arrow">Reports</span></a
                   >
                 </li>
                 <li class="footer__menu-item">

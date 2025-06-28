@@ -1,5 +1,5 @@
-<section class="hero-alt">
-   <header class="hero-alt__header">
+<!-- <section class="hero-alt"> -->
+   <!-- <header class="hero-alt__header">
       <div class="hero-alt__header-inner container">
          <h1 class="hero-alt__title">
             Today's Headlines: Stay
@@ -12,34 +12,36 @@
             and stories. Discover the world through our news coverage.
          </p>
       </div>
-   </header>
+   </header> -->
    <div class="hero-alt__body">
    <ul class="list">
    <li class="list__item">
       <?php
-         $args = [
-           'post_type'      => 'post',
-           'posts_per_page' => 1,
-           'post_status'    => 'publish',
-           'orderby'        => 'date',
-           'order'          => 'DESC',
-           'ignore_sticky_posts' => true
-         ];
-         
-         $query = new WP_Query($args);
-         
-         if ($query->have_posts()):
-           while ($query->have_posts()): $query->the_post();
-         
-             $img_url   = get_the_post_thumbnail_url(get_the_ID(), 'full');
-             $title     = get_the_title();
-             $link      = get_permalink();
-             $excerpt   = get_the_excerpt();
-             $category  = get_the_category();
-             $category  = !empty($category) ? $category[0]->name : '';
-             $date      = get_the_date();
-             $author    = get_the_author();
-         ?>
+      $args = [
+        'post_type' => 'post',
+        'posts_per_page' => 1,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'ignore_sticky_posts' => true,
+      ];
+
+      $query = new WP_Query($args);
+
+      if ($query->have_posts()):
+        while ($query->have_posts()):
+
+          $query->the_post();
+
+          $img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+          $title = get_the_title();
+          $link = get_permalink();
+          $excerpt = get_the_excerpt();
+          $category = get_the_category();
+          $category = !empty($category) ? $category[0]->name : '';
+          $date = get_the_date();
+          $author = get_the_author();
+          ?>
       <article class="news-card container">
          <img
             src="<?php echo esc_url($img_url); ?>"
@@ -60,7 +62,9 @@
             <dl class="summary__list">
                <div class="summary__item">
                   <dt class="summary__key">Category</dt>
-                  <dd class="summary__value"><?php echo esc_html($category); ?></dd>
+                  <dd class="summary__value"><?php echo esc_html(
+                    $category,
+                  ); ?></dd>
                </div>
                <div class="summary__item">
                   <dt class="summary__key">Publication Date</dt>
@@ -68,7 +72,9 @@
                </div>
                <div class="summary__item">
                   <dt class="summary__key">Author</dt>
-                  <dd class="summary__value"><?php echo esc_html($author); ?></dd>
+                  <dd class="summary__value"><?php echo esc_html(
+                    $author,
+                  ); ?></dd>
                </div>
             </dl>
          </div>
@@ -78,7 +84,9 @@
                   <li class="blog-actions__item">
                      <button class="blog-actions__button is-active" type="button" data-like>
                      <span class="blog-actions__icon-wrapper">
-                     <?php echo file_get_contents(get_template_directory() . '/icons/heart.svg'); ?>
+                     <?php echo file_get_contents(
+                       get_template_directory() . '/icons/heart.svg',
+                     ); ?>
                      </span>
                      <span>14k</span>
                      </button>
@@ -86,63 +94,71 @@
                   <li class="blog-actions__item">
                      <button class="blog-actions__button" type="button">
                      <span class="blog-actions__icon-wrapper">
-                     <?php echo file_get_contents(get_template_directory() . '/icons/tele.svg'); ?>
+                     <?php echo file_get_contents(
+                       get_template_directory() . '/icons/tele.svg',
+                     ); ?>
                      </span>
                      <span>204</span>
                      </button>
                   </li>
                </ul>
             </div>
-            <a href="<?php echo esc_url($link); ?>" class="news-card__link button">Read More</a>
+            <a href="<?php echo esc_url(
+              $link,
+            ); ?>" class="news-card__link button">Read More</a>
          </div>
       </article>
       <?php
-         endwhile;
-         wp_reset_postdata();
-         endif;
-         ?>
+        endwhile;
+        wp_reset_postdata();
+      endif;
+      ?>
    </li>
    <li class="list__item">
       <div class="news container">
          <ul class="news__list">
             <?php
-               $args = [
-                 'post_type' => 'post',
-                 'posts_per_page' => 4,
-                 'post_status' => 'publish',
-                 'orderby' => 'date',
-                 'order' => 'DESC',
-                 'ignore_sticky_posts' => true
-               ];
-               $query = new WP_Query($args);
-               
-               if ($query->have_posts()):
-                 $posts = $query->posts; 
-                 array_shift($posts);
-               
-                 foreach ($posts as $post):
-                   setup_postdata($post); ?>
+            $args = [
+              'post_type' => 'post',
+              'posts_per_page' => 4,
+              'post_status' => 'publish',
+              'orderby' => 'date',
+              'order' => 'DESC',
+              'ignore_sticky_posts' => true,
+            ];
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()):
+              $posts = $query->posts;
+              array_shift($posts);
+
+              foreach ($posts as $post):
+                setup_postdata($post); ?>
             <li class="news__item">
                <article class="news-card">
                   <?php if (has_post_thumbnail()): ?>
                   <div class="news-card__image">
-                     <?php echo get_the_post_thumbnail(get_the_ID(), 'blog-post-thumb', [
-                        'class' => 'news-card__image',
-                        'alt' => get_the_title(),
-                        ]); ?>
+                     <?php echo get_the_post_thumbnail(
+                       get_the_ID(),
+                       'blog-post-thumb',
+                       [
+                         'class' => 'news-card__image',
+                         'alt' => get_the_title(),
+                       ],
+                     ); ?>
                   </div>
                   <?php endif; ?>
                   <div class="news-card__body">
                      <h2 class="news-card__title h6"><?php the_title(); ?></h2>
                      <div class="news-card__description">
                         <?php
-                           $excerpt = get_the_excerpt();
-                           $limit = 150;
-                           if (strlen($excerpt) > $limit) {
-                             $excerpt = substr($excerpt, 0, $limit) . '...';
-                           }
-                           echo '<p>' . esc_html($excerpt) . '</p>';
-                           ?>
+                        $excerpt = get_the_excerpt();
+                        $limit = 150;
+                        if (strlen($excerpt) > $limit) {
+                          $excerpt = substr($excerpt, 0, $limit) . '...';
+                        }
+                        echo '<p>' . esc_html($excerpt) . '</p>';
+                        ?>
                      </div>
                   </div>
                   <div class="news-card__controls">
@@ -152,8 +168,8 @@
                               <button class="blog-actions__button" type="button" data-like>
                               <span class="blog-actions__icon-wrapper">
                               <?php echo file_get_contents(
-                                 get_template_directory() . '/icons/heart.svg',
-                                 ); ?>
+                                get_template_directory() . '/icons/heart.svg',
+                              ); ?>
                               </span>
                               <span>10k</span>
                               </button>
@@ -162,8 +178,8 @@
                               <button class="blog-actions__button" type="button">
                               <span class="blog-actions__icon-wrapper">
                               <?php echo file_get_contents(
-                                 get_template_directory() . '/icons/tele.svg',
-                                 ); ?>
+                                get_template_directory() . '/icons/tele.svg',
+                              ); ?>
                               </span>
                               <span>124</span>
                               </button>
@@ -177,10 +193,10 @@
                </article>
             </li>
             <?php
-               endforeach;
-               wp_reset_postdata();
-               endif;
-               ?>
+              endforeach;
+              wp_reset_postdata();
+            endif;
+            ?>
          </ul>
       </div>
-</section>
+<!-- </section> -->

@@ -1343,6 +1343,17 @@ a[class] {
 .card__cell-link {
   grid-area: link;
 }
+.card__cell img {
+  width: 100%;
+  height: clamp(10.5625rem, 7.9656862745rem + 10.6535947712vw, 20.75rem);
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+@media (width <= 90.06125rem) {
+  .card__cell img {
+    border-radius: 0.625rem;
+  }
+}
 
 .tabs__header {
   border-bottom: var(--border);
@@ -2092,8 +2103,11 @@ a[class] {
   }
 }
 .video-card__body {
-  display: grid;
-  row-gap: clamp(0.25rem, 0.1544117647rem + 0.3921568627vw, 0.625rem);
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(0.375rem, 0.2316176471rem + 0.5882352941vw, 0.9375rem);
+  justify-content: space-between;
+  height: 100%;
 }
 .video-card__player {
   width: 100%;
@@ -2224,6 +2238,17 @@ a[class] {
   flex-direction: column;
   row-gap: clamp(1.25rem, 1.0906862745rem + 0.6535947712vw, 1.875rem);
   height: 100%;
+}
+.report-card img {
+  width: 100%;
+  height: 18.125rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+@media (width <= 47.99875rem) {
+  .report-card img {
+    height: 13.9375rem;
+  }
 }
 .report-card__image {
   width: 100%;

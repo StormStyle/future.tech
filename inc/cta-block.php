@@ -1,4 +1,5 @@
 <?php
+
 function register_cta_block()
 {
   wp_register_script(

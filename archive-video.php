@@ -1,5 +1,7 @@
+<?php get_header(); ?>
+<main>
 <section class="section">
-   <!-- <header class="section__header">
+   <header class="section__header">
       <div class="section__header-inner container">
          <div class="section__header-info">
             <p class="section__subtitle tag">Featured Videos</p>
@@ -7,19 +9,15 @@
                Visual Insights for the Modern Viewer
             </h2>
          </div>
-         <div class="section__actions">
-            <a href="" class="section__link button">
-            <span class="icon icon--yellow-arrow">View All</span>
-            </a>
-         </div>
+
       </div>
-   </header> -->
+   </header>
    <div class="section__body">
       <ul class="bordered-grid bordered-grid--2-col container">
          <?php
          $videos = new WP_Query([
            'post_type' => 'video',
-           'posts_per_page' => 4,
+           'posts_per_page' => -1,
            'post_status' => 'publish',
          ]);
 
@@ -92,3 +90,7 @@
       </ul>
    </div>
 </section>
+
+<?php get_template_part('templates/about'); ?>
+</main>
+<?php get_footer(); ?>

@@ -176,5 +176,16 @@
     &-link {
       grid-area: link;
     }
+
+    img {
+      width: 100%;
+      height: fluid(332, 169);
+      object-fit: cover;
+      border-radius: rem(12);
+
+      @include laptop {
+        border-radius: rem(10);
+      }
+    }
   }
 }

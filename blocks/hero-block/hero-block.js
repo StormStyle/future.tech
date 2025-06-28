@@ -25,9 +25,9 @@
       metrics: {
         type: 'array',
         default: [
-          { title: 'Resources available', value: '300+' },
-          { title: 'Total Downloads', value: '12k+' },
-          { title: 'Active Users', value: '10k+' },
+          { title: 'Resources available', value: '300' },
+          { title: 'Total Downloads', value: '12k' },
+          { title: 'Active Users', value: '10k' },
         ],
       },
       teamImages: {

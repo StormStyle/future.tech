@@ -1,11 +1,13 @@
 <?php get_header(); ?>   
 
 <main>
-    <?php get_template_part('templates/news-hero'); ?>
-     <?php get_template_part('templates/tab-reviews'); ?>
-     <?php get_template_part('templates/video-section'); ?>
-      <?php get_template_part('templates/about'); ?>
+
+<?php while (have_posts()):
+  the_post();
+  the_content();
+endwhile; ?>
 </main>
 
 
 <?php get_footer(); ?>
+

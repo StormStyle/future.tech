@@ -1,5 +1,4 @@
 <?php 
-// Регистрируем мета-бокс
 function custom_author_meta_box() {
     add_meta_box(
         'custom_author_info',
@@ -12,7 +11,6 @@ function custom_author_meta_box() {
 }
 add_action('add_meta_boxes', 'custom_author_meta_box');
 
-// Вывод HTML в мета-боксе
 function custom_author_meta_box_callback($post) {
     wp_nonce_field('save_custom_author_data', 'custom_author_nonce');
 
@@ -59,7 +57,6 @@ function custom_author_meta_box_callback($post) {
     <?php
 }
 
-// Сохраняем данные
 function save_custom_author_meta($post_id) {
     if (!isset($_POST['custom_author_nonce']) || !wp_verify_nonce($_POST['custom_author_nonce'], 'save_custom_author_data')) {
         return;

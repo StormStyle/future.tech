@@ -523,6 +523,6 @@
       </header>
       <?php get_template_part('templates/reviews'); ?> 
    </section> -->
-   <?php get_template_part('templates/about'); ?> 
+   <!-- <?php get_template_part('templates/about'); ?>  -->
 </main>
 <?php get_footer(); ?>

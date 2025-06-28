@@ -18,13 +18,9 @@ function register_features_block()
 
   wp_register_style(
     'features-block-editor-style',
-    get_template_directory_uri() .
-      '/blocks/block-editor.css',
+    get_template_directory_uri() . '/blocks/block-editor.css',
     ['wp-edit-blocks'],
-    filemtime(
-      get_template_directory() .
-        '/blocks/block-editor.css',
-    ),
+    filemtime(get_template_directory() . '/blocks/block-editor.css'),
   );
 
   register_block_type('custom/features-block', [
@@ -118,7 +114,7 @@ function render_features_block($attributes)
 
   ob_start();
   ?>
-  <section class="section">
+  <section id="features-section" class="section">
     <header class="section__header">
       <div class="section__header-inner container">
         <div class="section__header-info">
