@@ -114,9 +114,9 @@ function render_features_block($attributes)
 
   ob_start();
   ?>
-  <section id="features-section" class="section">
+  <section id="features-section" class="section" data-scroll-animate data-animation-appear-block>
     <header class="section__header">
-      <div class="section__header-inner container">
+      <div class="section__header-inner container" data-head-animation>
         <div class="section__header-info">
           <p class="section__subtitle tag"><?php echo esc_html(
             $atts['subtitle'],
@@ -132,7 +132,7 @@ function render_features_block($attributes)
         <?php foreach ($atts['features'] as $feature): ?>
           <li class="list__item">
             <div class="card container">
-              <div class="card__preview">
+              <div class="card__preview" data-animation-features-prev>
                 <div class="card__preview-main">
                   <img src="<?php echo esc_url(
                     $feature['img'],
@@ -147,7 +147,7 @@ function render_features_block($attributes)
                   </div>
                 </div>
               </div>
-              <div class="card__body">
+              <div class="card__body" data-animation-features-card>
                 <div class="card__grid card__grid--2-col">
                   <?php if (
                     !empty($feature['cells']) &&

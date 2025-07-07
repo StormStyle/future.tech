@@ -61,8 +61,9 @@ function render_reviews_block($attributes)
 
   ob_start();
   ?>
-  <header class="section__header">
-    <div class="section__header-inner container">
+  <div  data-scroll-animate data-animation-appear-block>
+    <header class="section__header">
+    <div class="section__header-inner container" data-head-animation>
       <div class="section__header-info">
         <p class="section__subtitle tag"><?php echo esc_html(
           $atts['subtitle'],
@@ -81,5 +82,6 @@ function render_reviews_block($attributes)
     </div>
   </header>
   <?php get_template_part('templates/reviews'); ?>
+  </div>
   <?php return ob_get_clean();
 }

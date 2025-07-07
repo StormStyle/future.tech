@@ -2,11 +2,15 @@ import Header from './Header.js';
 import TabsCollection from './Tabs.js';
 import VideoPlayerCollection from './VideoPlayer.js';
 import ExpandableContentCollection from './Expandable-content.js';
+/* import Animation from './Animation.js'; */
+import initAnimations from './AnimationInit.js';
 
 new Header();
 new TabsCollection();
-new VideoPlayerCollection()
-new ExpandableContentCollection()
+new VideoPlayerCollection();
+new ExpandableContentCollection();
+/* Animation(); */
+new initAnimations();
 
 document.querySelectorAll('[data-like]').forEach((button) => {
   button.addEventListener('click', () => {
@@ -26,4 +30,12 @@ document.querySelectorAll('[data-rating]').forEach((ratingEl) => {
       });
     });
   });
+});
+
+window.addEventListener('load', () => {
+  initAnimations();
+
+  setTimeout(() => {
+    ScrollTrigger.refresh(); // Важно для расчёта позиций
+  }, 100);
 });

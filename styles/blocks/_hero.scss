@@ -1,6 +1,7 @@
 @use '../helpers' as *;
 
 .hero {
+  overflow: hidden;
   &__main {
     @include tablet-above {
       display: grid;

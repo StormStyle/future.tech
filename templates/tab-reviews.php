@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" data-scroll-animate data-animation-appear-block>
    <div class="section__body tabs" data-js-tabs>
       <?php
       $uncategorized_id = 1;
@@ -10,7 +10,7 @@
       ]);
       ?>
       <header class="tabs__header">
-         <div class="tabs__buttons container" role="tablist">
+         <div class="tabs__buttons container" role="tablist" data-animation-news-tabs>
             <button
                class="tabs__button is-active"
                type="button"
@@ -53,6 +53,7 @@
             aria-labelledby="tab-all"
             tabindex="0"
             data-js-tabs-content
+            data-animation-news-content
             >
             <ul class="list">
                <?php

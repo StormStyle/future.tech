@@ -1,4 +1,4 @@
-<div class="section__body">
+<div class="section__body" data-animation-appear-block>
          <?php
          $args = [
            'post_type' => 'review',
@@ -54,7 +54,7 @@
                   : '';
               }
               ?>
-            <li class="bordered-grid__item">
+            <li class="bordered-grid__item" data-animation-content>
                <div class="review-card">
                   <div class="review-card__author person-card">
                      <img src="<?php echo esc_url(

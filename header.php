@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="<?php echo get_template_directory_uri(); ?>/src/main.js" defer></script>
     <?php wp_head(); ?>
   </head>
   <body>
-    <header class="header" data-js-header>
+    <header data-animation-header class="header" data-js-header>
       <div class="header__promo">
         <div class="header__promo-inner container">
           <a href="/blog/" class="header__promo-link">

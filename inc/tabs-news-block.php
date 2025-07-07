@@ -54,8 +54,8 @@ function render_tabs_news_block($attributes)
   ob_start();
   ?>
 
-  <header class="section__header">
-    <div class="section__header-inner container">
+  <header class="section__header" data-scroll-animate data-animation-appear-block>
+    <div class="section__header-inner container" data-head-animation>
       <div class="section__header-info">
         <p class="section__subtitle tag"><?php echo esc_html($subtitle); ?></p>
         <h2 class="section__title"><?php echo esc_html($title); ?></h2>

@@ -15,5 +15,8 @@
     "@prettier/plugin-php": "^0.22.4",
     "prettier": "^3.6.1",
     "sass": "^1.89.2"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
   }
 }

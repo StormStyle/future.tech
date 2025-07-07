@@ -81,9 +81,9 @@ function render_cta_block($attributes)
   ]);
   ob_start();
   ?>
-  <section class="about">
+  <section class="about" data-scroll-animate data-animation-appear-block>
     <div class="about__inner container">
-      <header class="about__header">
+      <header class="about__header" data-head-animation>
         <img
           src="<?php echo esc_url(
             get_template_directory_uri() . $atts['icon'],
@@ -106,7 +106,7 @@ function render_cta_block($attributes)
       <?php if (!empty($atts['items'])): ?>
       <ul class="about__list">
         <?php foreach ($atts['items'] as $item): ?>
-        <li class="about__item">
+        <li class="about__item" data-animation-content>
           <a href="<?php echo esc_url(
             $item['url'],
           ); ?>" class="about-card tile">

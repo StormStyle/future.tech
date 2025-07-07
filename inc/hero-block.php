@@ -125,9 +125,9 @@ function render_hero_block($attributes)
 
   ob_start();
   ?>
-    <section class="hero">
+    <section class="hero" data-animation-hero data-scroll-animate data-animation-appear-block>
       <div class="hero__main container">
-         <div class="hero__body">
+         <div data-animation-hero-main class="hero__body" data-head-animation>
             <p class="hero__subtitle"><?php echo esc_html(
               $atts['mainSubtitle'],
             ); ?></p>
@@ -138,7 +138,7 @@ function render_hero_block($attributes)
                <p><?php echo esc_html($atts['mainDescription']); ?></p>
             </div>
          </div>
-         <div class="hero__metrix metrix full-vw-line full-vw-line--top full-vw-line--left">
+         <div data-animation-hero-metrix data-animation-content class="hero__metrix metrix full-vw-line full-vw-line--top full-vw-line--left">
             <dl class="metrix__list">
                 <?php foreach ($atts['metrics'] as $metric): ?>
                     <div class="metrix__item">
@@ -152,7 +152,7 @@ function render_hero_block($attributes)
                 <?php endforeach; ?>
             </dl>
          </div>
-         <div class="hero__resources-preview resources-preview">
+         <div data-animation-hero-resources data-animation-content class="hero__resources-preview resources-preview">
             <div class="resources-preview__team team">
                 <?php foreach ($atts['teamImages'] as $img): ?>
                     <img src="<?php echo esc_url(
@@ -177,7 +177,7 @@ function render_hero_block($attributes)
             </div>
          </div>
       </div>
-      <div class="hero__advantages">
+      <div class="hero__advantages" data-animation-content>
          <h2 class="visually-hidden"></h2>
          <ul class="hero__advantages-list container">
             <?php foreach ($atts['advantages'] as $adv): ?>

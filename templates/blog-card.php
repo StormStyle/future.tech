@@ -1,11 +1,19 @@
-<li class="list__item">
+<li class="list__item" data-animation-news-content data-animation-appear-block>
   <article class="blog-card container">
     <div class="blog-card__author person-card">
       <?php
-$author_name = get_post_meta(get_the_ID(), '_custom_author_name', true);
-$author_position = get_post_meta(get_the_ID(), '_custom_author_position', true);
-$author_avatar = get_post_meta(get_the_ID(), '_custom_author_avatar', true);
-?>
+      $author_name = get_post_meta(get_the_ID(), '_custom_author_name', true);
+      $author_position = get_post_meta(
+        get_the_ID(),
+        '_custom_author_position',
+        true,
+      );
+      $author_avatar = get_post_meta(
+        get_the_ID(),
+        '_custom_author_avatar',
+        true,
+      );
+      ?>
       <img
         src="<?php echo esc_url($author_avatar); ?>"
         alt="<?php the_author(); ?>"
@@ -21,7 +29,9 @@ $author_avatar = get_post_meta(get_the_ID(), '_custom_author_avatar', true);
     </div>
 
     <div class="blog-card__body">
-      <time datetime="<?php echo get_the_date('c'); ?>" class="blog-card__date h6">
+      <time datetime="<?php echo get_the_date(
+        'c',
+      ); ?>" class="blog-card__date h6">
         <?php echo get_the_date('F j, Y'); ?>
       </time>
 
@@ -38,8 +48,8 @@ $author_avatar = get_post_meta(get_the_ID(), '_custom_author_avatar', true);
             <button class="blog-actions__button is-active" type="button" data-like>
               <span class="blog-actions__icon-wrapper">
                 <?php echo file_get_contents(
-                           get_template_directory() . '/icons/heart.svg',
-                           ); ?>
+                  get_template_directory() . '/icons/heart.svg',
+                ); ?>
               </span>
               <span>
                 <span> 24.5k </span>
@@ -50,8 +60,8 @@ $author_avatar = get_post_meta(get_the_ID(), '_custom_author_avatar', true);
             <button class="blog-actions__button" type="button">
               <span class="blog-actions__icon-wrapper">
                 <?php echo file_get_contents(
-                           get_template_directory() . '/icons/view.svg',
-                           ); ?>
+                  get_template_directory() . '/icons/view.svg',
+                ); ?>
               </span>
               <span> 50 </span>
             </button>
@@ -60,8 +70,8 @@ $author_avatar = get_post_meta(get_the_ID(), '_custom_author_avatar', true);
             <button class="blog-actions__button" type="button">
               <span class="blog-actions__icon-wrapper">
                 <?php echo file_get_contents(
-                           get_template_directory() . '/icons/tele.svg',
-                           ); ?>
+                  get_template_directory() . '/icons/tele.svg',
+                ); ?>
               </span>
               <span>20</span>
             </button>
