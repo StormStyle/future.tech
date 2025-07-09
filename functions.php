@@ -17,6 +17,18 @@ require get_template_directory() . '/inc/metrix-block.php';
 require get_template_directory() . '/inc/video-block.php';
 require get_template_directory() . '/inc/news-block.php';
 
+add_theme_support('title-tag');
+
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script(
+    'main-js',
+    get_template_directory_uri() . '/dist/assets/main.js',
+    [],
+    null,
+    true,
+  );
+});
+
 add_filter(
   'script_loader_tag',
   function ($tag, $handle, $src) {
@@ -30,5 +42,3 @@ add_filter(
   10,
   3,
 );
-
-add_theme_support('title-tag');

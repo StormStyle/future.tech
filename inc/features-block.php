@@ -155,7 +155,7 @@ function render_features_block($attributes)
                   ): ?>
                     <?php foreach ($feature['cells'] as $cell): ?>
                       <div class="card__cell tile">
-                        <h4 class="card__cell-title h5"><?php echo esc_html(
+                        <h4 class="card__cell-title h5" ><?php echo esc_html(
                           $cell['title'],
                         ); ?></h4>
                         <p class="card__cell-description"><?php echo esc_html(

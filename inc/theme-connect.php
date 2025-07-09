@@ -6,10 +6,10 @@ function theme_enqueue_assets()
     'main-style',
     get_template_directory_uri() . '/styles/main.css',
   );
-  
+
   wp_enqueue_script(
     'main-js',
-    get_template_directory_uri() . '/src/main.js',
+    get_template_directory_uri() . '/dist/assets/main.js',
     [],
     null,
     true,

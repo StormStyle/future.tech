@@ -1,3 +1,6 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import Header from './Header.js';
 import TabsCollection from './Tabs.js';
 import VideoPlayerCollection from './VideoPlayer.js';
@@ -5,12 +8,13 @@ import ExpandableContentCollection from './Expandable-content.js';
 /* import Animation from './Animation.js'; */
 import initAnimations from './AnimationInit.js';
 
+gsap.registerPlugin(ScrollTrigger);
+
 new Header();
 new TabsCollection();
 new VideoPlayerCollection();
 new ExpandableContentCollection();
 /* Animation(); */
-new initAnimations();
 
 document.querySelectorAll('[data-like]').forEach((button) => {
   button.addEventListener('click', () => {
@@ -33,9 +37,6 @@ document.querySelectorAll('[data-rating]').forEach((ratingEl) => {
 });
 
 window.addEventListener('load', () => {
-  initAnimations();
-
-  setTimeout(() => {
-    ScrollTrigger.refresh(); // Важно для расчёта позиций
-  }, 100);
+  initAnimations(); // инициализируем анимации
+  ScrollTrigger.refresh(); // пересчитываем позиции с учётом текущего скролла
 });

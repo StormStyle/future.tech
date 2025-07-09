@@ -106,7 +106,7 @@ function render_cta_block($attributes)
       <?php if (!empty($atts['items'])): ?>
       <ul class="about__list">
         <?php foreach ($atts['items'] as $item): ?>
-        <li class="about__item" data-animation-content>
+        <li class="about__item" data-animation-content data-animate>
           <a href="<?php echo esc_url(
             $item['url'],
           ); ?>" class="about-card tile">

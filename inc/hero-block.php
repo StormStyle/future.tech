@@ -125,20 +125,20 @@ function render_hero_block($attributes)
 
   ob_start();
   ?>
-    <section class="hero" data-animation-hero data-scroll-animate data-animation-appear-block>
-      <div class="hero__main container">
-         <div data-animation-hero-main class="hero__body" data-head-animation>
-            <p class="hero__subtitle"><?php echo esc_html(
+    <section class="hero" data-animation-hero data-scroll-animate>
+      <div class="hero__main container" data-hero-main>
+         <div class="hero__body" data-hero-body>
+            <p class="hero__subtitle" data-hero-subtitle><?php echo esc_html(
               $atts['mainSubtitle'],
             ); ?></p>
-            <h1 class="hero__title"><?php echo esc_html(
+            <h1 class="hero__title" data-hero-title><?php echo esc_html(
               $atts['mainTitle'],
             ); ?></h1>
-            <div class="hero__description">
+            <div class="hero__description" data-hero-description>
                <p><?php echo esc_html($atts['mainDescription']); ?></p>
             </div>
          </div>
-         <div data-animation-hero-metrix data-animation-content class="hero__metrix metrix full-vw-line full-vw-line--top full-vw-line--left">
+         <div data-hero-metrics class="hero__metrix metrix full-vw-line full-vw-line--top full-vw-line--left">
             <dl class="metrix__list">
                 <?php foreach ($atts['metrics'] as $metric): ?>
                     <div class="metrix__item">
@@ -152,7 +152,7 @@ function render_hero_block($attributes)
                 <?php endforeach; ?>
             </dl>
          </div>
-         <div data-animation-hero-resources data-animation-content class="hero__resources-preview resources-preview">
+         <div class="hero__resources-preview resources-preview" data-hero-resources>
             <div class="resources-preview__team team">
                 <?php foreach ($atts['teamImages'] as $img): ?>
                     <img src="<?php echo esc_url(
@@ -177,11 +177,11 @@ function render_hero_block($attributes)
             </div>
          </div>
       </div>
-      <div class="hero__advantages" data-animation-content>
+      <div class="hero__advantages">
          <h2 class="visually-hidden"></h2>
-         <ul class="hero__advantages-list container">
+         <ul data-hero-advantages class="hero__advantages-list container">
             <?php foreach ($atts['advantages'] as $adv): ?>
-            <li class="hero__advantages-item">
+            <li data-hero-adv class="hero__advantages-item" >
                <div class="advantage-card">
                   <img src="<?php echo esc_url(
                     $adv['img'],

@@ -1,6 +1,6 @@
-<section class="about">
+<section class="about" data-scroll-animate>
         <div class="about__inner container">
-          <header class="about__header">
+          <header class="about__header" data-animate>
             <img
               src="<?php echo get_template_directory_uri() .
                 '/img/about/icon.svg'; ?>"
@@ -24,7 +24,7 @@
               </p>
             </div>
           </header>
-          <ul class="about__list">
+          <ul class="about__list" data-animate>
             <li class="about__item">
               <a href="/resources#resources-section" class="about-card tile">
                 <h3 class="about-card__title circle-icon">Resource Access</h3>

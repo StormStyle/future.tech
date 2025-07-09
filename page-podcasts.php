@@ -1,7 +1,7 @@
 <?php get_header(); ?>  
 <main>
-   <section class="hero-alt">
-      <header class="hero-alt__header">
+   <section class="hero-alt" data-scroll-animate>
+      <header class="hero-alt__header" data-animate>
          <div class="hero-alt__header-inner container">
             <h1 class="hero-alt__title">
                Unlock the World of Artificial Intelligence
@@ -17,7 +17,7 @@
             </p>
          </div>
       </header>
-      <div class="hero-alt__body">
+      <div class="hero-alt__body" data-animate>
          <ul class="list">
             <?php
                $podcasts = new WP_Query([
@@ -180,8 +180,8 @@
          </ul>
       </div>
    </section>
-   <section class="section">
-      <header class="section__header">
+   <section class="section" data-scroll-animate>
+      <header class="section__header" data-animate>
          <div class="section__header-inner container">
             <div class="section__header-info">
                <p class="section__subtitle tag">Featured Videos</p>
@@ -191,7 +191,7 @@
             </div>
          </div>
       </header>
-      <div class="section__body">
+      <div class="section__body" data-animate>
          <ul class="bordered-grid bordered-grid--3-col container">
             <?php
                $podcasts = new WP_Query([
